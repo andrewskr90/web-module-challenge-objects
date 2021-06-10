@@ -49,8 +49,17 @@ export const burger = {
   name: "Burger", 
   price: 18, 
   category: "Lunch", 
-  /*Your code here*/
-}
+  discount: function(discountClass){
+    if(discountClass==='teacher' || 'student'){
+      burger.price = burger.price*0.75;
+    }
+    else if(discountClass==='public'){
+      burger.price = burger.price=0.9;
+    }
+      return burger.price;
+  }
+} 
+
 
 
 
@@ -70,7 +79,7 @@ const reviews = [
 Using the reviews array above:
   1. log only Julius' feedback to the console - no function needed 
 */
-
+console.log(reviews[5].feedback);
 
 
 
