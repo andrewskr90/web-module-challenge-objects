@@ -48,17 +48,17 @@ Using the burger object below do the following:
 export const burger = {
   name: "Burger", 
   price: 18, 
-  category: "Lunch", 
-  discount: function(discountClass){
-    if(discountClass==='teacher' || 'student'){
-      burger.price = burger.price*0.75;
+  category: "Lunch"}
+
+  burger.discount= function(discountClass){
+    if(discountClass==='teacher' || discountClass==='student'){ //dont forget to do the second parameter (discountClass) before the argument (student)
+      return this.price*0.75;
     }
-    else if(discountClass==='public'){
-      burger.price = burger.price=0.9;
+    else{
+      return this.price*0.9;
     }
-      return burger.price;
+  
   }
-} 
 
 
 
@@ -79,7 +79,7 @@ const reviews = [
 Using the reviews array above:
   1. log only Julius' feedback to the console - no function needed 
 */
-console.log(reviews[5].feedback);
+console.log('task 3',reviews[5].feedback);
 
 
 
@@ -89,7 +89,8 @@ Using the reviews array above do the following: (no function needed)
   2. log the whole array to the console, make sure the new review is inside of it   
 */
 
-
+reviews.push({name:'Joe',rating:'4',feedback:'So good!'});
+console.log(reviews);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Reyna's feedback is missing! Use what you know to do the following: (no function needed) 
@@ -97,7 +98,8 @@ Reyna's feedback is missing! Use what you know to do the following: (no function
   2. log the reviews array to the console to check your work
 */
 
-
+'task 5', reviews[7].feedback= "this place is chill with really cool people, great for getting work done on weekdays";
+console.log(reviews);
 
 
 
@@ -112,8 +114,8 @@ Use the getReviewByIndex function below to do the following:
 */
 
 
-function getReviewByIndex(/*Your code here*/) {
-  /*Your code here*/
+function getReviewByIndex(array, index) {
+  return(`${array[index].name} gave the restaurant a ${array[index].rating} star review, and their feedback was: ${array[index].feedback}`)
 }
 
 
@@ -131,8 +133,9 @@ Use the getLastReview function below to do the following:
 */
 
 
-function getLastReview(/*Your code here*/) {
-  /*Your code here*/
+function getLastReview(array) {
+  let lastObject = array.length-1;
+  return(`${array[lastObject].name} gave the restaurant a ${array[lastObject].rating} star review, and their feedback was: ${array[lastObject].feedback}`);
 } 
 
 
@@ -153,9 +156,17 @@ Use the getReviewsByRating function below to do the following:
   ]
 */
 
- function getReviewByRating(/* code here */) {
-    /* code here */
-  }
+ function getReviewByRating(array,number) {
+   let reviewRange = [];
+    for(let i=0;i<array.length;i++){
+      if(array[i].rating>=number && array[i].rating<(number+1)){
+        reviewRange.push(array[i]);
+      
+      }
+      
+    } return reviewRange;
+  }console.log('stretch 1', getReviewByRating(reviews,4));
+
 
   
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 2: 💪💪💪💪💪💪💪💪💪💪   
@@ -171,9 +182,6 @@ Use the getLongReviews function below to do the following:
   ]
 */
 
-function getLongReviews(/* code here */) {
-    /* code here */
-  }
   
 
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 3: 💪💪💪💪💪💪💪💪💪💪 
